@@ -1,4 +1,4 @@
-IM系统使用Springboot + Netty，集成了Redis，Rocketmq，ORM使用的是JPA。
+IM系统使用Springboot + Netty，集成了Redis，Rocketmq，ORM使用的是JPA，数据库是Myql。
 
 
 主要实现了以下功能：
