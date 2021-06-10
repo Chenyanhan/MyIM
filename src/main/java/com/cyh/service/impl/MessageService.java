@@ -7,11 +7,15 @@ import com.cyh.session.Session;
 import com.cyh.util.CopyUtils;
 import com.cyh.util.SessionUtil;
 import io.netty.channel.Channel;
+import io.netty.channel.group.ChannelGroup;
+import io.netty.channel.group.DefaultChannelGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import protocol.request.GroupMessageRequestPacket;
 import protocol.request.MessageRequestPacket;
+import protocol.response.GroupMessageResponsePacket;
 import protocol.response.MessageResponsePacket;
 
 import java.util.ArrayList;
@@ -77,4 +81,22 @@ public class MessageService
     {
         return SessionUtil.getChannel(userId);
     }
+
+    public void sendMsgByGroup(GroupMessageRequestPacket groupMessage)
+    {
+        String toGroupId = groupMessage.getToGroupId();
+        if (toGroupId != null)
+        {
+            ChannelGroup groupChannel = SessionUtil.getGroupChannel(groupMessage.getToGroupId());
+            if (groupChannel != null)
+            {
+                // 1.拿到 groupId 构造群聊消息的响应
+                GroupMessageResponsePacket responsePacket = new GroupMessageResponsePacket();
+                responsePacket.setFromGroupId(toGroupId);
+                responsePacket.setMessage(groupMessage.getMessage());
+                responsePacket.setFromUser(groupMessage.getUserId());
+            }
+        }
+    }
+
 }

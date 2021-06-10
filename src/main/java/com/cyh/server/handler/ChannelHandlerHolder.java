@@ -12,7 +12,11 @@ public interface ChannelHandlerHolder
             new IMIdleStateHandler(),
             new Spliter(),
             new PacketDecoder(),
-//            new LoginRequestHandler(),
+            //new LoginRequestHandler(),
+            // 单聊消息请求处理器
+            //new MessageRequestHandler(),
+            // 创建群请求处理器
+            new CreateGroupRequestHandler(),
             new BindChannelReqHandler(),
             new HeartBeatRequestHandler(),
             new AuthHandler(),

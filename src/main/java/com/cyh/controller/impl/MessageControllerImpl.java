@@ -68,6 +68,7 @@ public class MessageControllerImpl implements MessageController
     @Override
     public BaseResponse sendMsgByGroup(GroupMessageRequestPacket groupMessage)
     {
+        messageService.sendMsgByGroup(groupMessage);
         return new BaseResponse();
 
     }
