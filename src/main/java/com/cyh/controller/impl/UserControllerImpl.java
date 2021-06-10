@@ -26,7 +26,6 @@ public class UserControllerImpl implements UserController
     private UserService userService;
 
     @RequestMapping(value = "updateInfo", method = RequestMethod.POST)
-    @Override
     public BaseResponse<UserInfo> updateInfo(@RequestBody UserInfo userInfo) throws Exception
     {
         BaseResponse<UserInfo> response = new BaseResponse<>();
@@ -75,7 +74,6 @@ public class UserControllerImpl implements UserController
      * @throws Exception
      */
     @RequestMapping(value = "contact", method = RequestMethod.POST)
-    @Override
     public BaseResponse<List<UserInfo>> getContact(@RequestBody String userId) throws Exception
     {
         BaseResponse<List<UserInfo>> response = new BaseResponse<>();

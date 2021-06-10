@@ -1,4 +1,4 @@
-package com.cyh.controller;
+package com.cyh.controller.impl;
 
 public abstract class BaseController
 {

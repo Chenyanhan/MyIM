@@ -23,17 +23,5 @@ public interface IndexController
 
     BaseResponse<UserInfoViewModel> login(LoginRequestPacket loginRequestPacket) throws Exception;
 
-    BaseResponse msgPush(MessageRequestPacket message) throws Exception;
-
-    BaseResponse sendMsgByGroup(GroupMessageRequestPacket groupMessage) throws Exception;
-
-    /**
-     * 随机匹配
-     * @param userInfo
-     * @return
-     * @throws Exception
-     */
-    BaseResponse RadomMatch(UserInfo userInfo)throws Exception;
-
     BaseResponse Logout(UserInfo userInfo)throws Exception;
 }

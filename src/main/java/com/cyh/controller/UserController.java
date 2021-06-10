@@ -9,7 +9,5 @@ import java.util.List;
 
 public interface UserController
 {
-    BaseResponse<UserInfo> updateInfo(UserInfo userInfo) throws Exception;
 
-    BaseResponse<List<UserInfo>> getContact(String userId) throws Exception;
 }
